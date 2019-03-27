@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EstateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="properties_estate">
+          <Key>
+            <PropertyRef Name="property_id" />
+          </Key>
+          <Property Name="property_id" Type="int" Nullable="false" />
+          <Property Name="rentORsell" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="bedrooms" Type="int" />
+          <Property Name="bathrooms" Type="int" />
+          <Property Name="description" Type="nvarchar" MaxLength="500" />
+          <Property Name="city_area" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="creation_date" Type="date" Nullable="false" />
+          <Property Name="price" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EstateModelStoreContainer">
+          <EntitySet Name="properties_estate" EntityType="Self.properties_estate" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EstateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="properties_estate">
+          <Key>
+            <PropertyRef Name="property_id" />
+          </Key>
+          <Property Name="property_id" Type="Int32" Nullable="false" />
+          <Property Name="rentORsell" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bedrooms" Type="Int32" />
+          <Property Name="bathrooms" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="city_area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="price" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EstateEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="properties_estate" EntityType="Self.properties_estate" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EstateModelStoreContainer" CdmEntityContainer="EstateEntities">
+          <EntitySetMapping Name="properties_estate">
+            <EntityTypeMapping TypeName="EstateModel.properties_estate">
+              <MappingFragment StoreEntitySet="properties_estate">
+                <ScalarProperty Name="property_id" ColumnName="property_id" />
+                <ScalarProperty Name="rentORsell" ColumnName="rentORsell" />
+                <ScalarProperty Name="bedrooms" ColumnName="bedrooms" />
+                <ScalarProperty Name="bathrooms" ColumnName="bathrooms" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="city_area" ColumnName="city_area" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

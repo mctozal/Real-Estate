@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "search";
+    Layout = "search";
+}
+
+<h2>
+    <asp:GridView ID="View1" runat="server"
+                  AutoGenerateColumns="False"
+                  GridLines="None"
+                  AllowPaging="true"
+                  CssClass="Grid"
+                  PagerStyle-CssClass="pgr"
+                  AlternatingRowStyle-CssClass="alt">
+        <Columns>
+            <asp:BoundField DataField="rentORsell" HeaderText="STATUE" />
+            <asp:BoundField DataField="bedrooms" HeaderText="BEDROOM" />
+            <asp:BoundField DataField="bathrooms" HeaderText="BATHROOM" />
+            <asp:BoundField DataField="description" HeaderText="DESCRIPTION" />
+            <asp:BoundField DataField="city_area" HeaderText="CITY" />
+            <asp:BoundField DataField="price" HeaderText="PRICE" />
+            <asp:BoundField DataField="creation_date" HeaderText="DATE" />
+        </Columns>
+
+    </asp:GridView>
+
+</h2>
+
